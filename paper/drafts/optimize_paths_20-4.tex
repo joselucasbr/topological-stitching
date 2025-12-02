@@ -1,0 +1,105 @@
+\documentclass[11pt, a4paper]{article}
+
+% --- Packages ---
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage[numbers]{natbib}
+
+% --- Title & Author Data ---
+\title{\textbf{The Theory of Topological Time-Stitching (v20.4)} \\ \large A Unified Geometric Framework for Discrete Spacetime, Quantum Branching, and Relativistic Mechanics}
+
+% --- AUTHOR BLOCK ---
+\author{
+    \textbf{First M. Last} \\
+    \textit{Independent Researcher} \\
+    \textit{City, Country} \\
+    \texttt{your.email@example.com}
+}
+\date{November 30, 2025}
+
+% --- Header/Footer Setup ---
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Topological Time-Stitching}
+\lhead{\today}
+\cfoot{\thepage}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This paper proposes a shift from a ``Block Universe'' to a ``Process Universe,'' where time is implemented as a discrete, iterative operation on a stochastic causal network updated at the Planck scale. We introduce Topological Stitching, in which particles are modeled as propagating helical excitations defined by a discrete, iterative phase-locking cycle. Imposing a strict causal speed limit on the total vector velocity of the helix yields the de Broglie wavelength, the Lorentz factor of Special Relativity, and the Gullstrand–Painlevé form of the Schwarzschild metric from a single geometric principle. A topological closure condition further produces discrete stability bands, offering a geometric origin for quantum energy quantization and particle mass spectra. The framework suggests experimentally testable predictions, including drift quantization and gravitational flow-clock asymmetries.
+\end{abstract}
+
+\tableofcontents
+\newpage
+
+% ... [SECTIONS 1-5 REMAIN UNCHANGED] ...
+
+% ----------------------------------------------------------------------
+\section{Unification with Special Relativity}
+% ----------------------------------------------------------------------
+
+\subsection{Kinematic Dilation (The Helical Derivation)}
+Numerical analysis confirms that the Geometric Stitch Ratio $R$ scales perfectly with Einstein's Lorentz Factor $\gamma$. This is because the ``Stitch'' measures the arc length of the helix required to complete one cycle, while classical time measures the linear projection.
+
+\begin{equation}
+    \lim_{v \to c} \frac{R(v)}{\gamma(v)} = \pi
+\end{equation}
+
+\textbf{Conclusion:} Relativity is the observation of a cyclic topology projected onto a linear axis. The factor of $\pi$ confirms that \textbf{Proper Time} is measuring the circumference of the phase cycle.
+
+\begin{figure}[H]
+    \centering
+    % UNCOMMENT THE LINE BELOW IF YOU HAVE THE IMAGE FILE 'helical_fix.png'
+    % \includegraphics[width=0.9\textwidth]{helical_fix.png}
+    \caption{\textbf{Geometric Verification of Time Dilation.} The Green Line represents the dilation predicted by the Helical Stitching Model (derived from $v_{rot} = \sqrt{c^2 - v^2}$). The Blue Dashed Line is the standard Einstein Gamma factor. The perfect overlap confirms that Special Relativity is the natural geometric limit of the helical stitch.}
+    \label{fig:relativity}
+\end{figure}
+
+% ----------------------------------------------------------------------
+\section{General Relativity as Emergent Causal Flow}
+% ----------------------------------------------------------------------
+
+\subsection{Gravity as Causal Valence}
+Mass corresponds to a region of \textbf{High Causal Valence} (increased connectivity). To maintain a uniform update rate $f_0$, the network connections must ``flow'' inward.
+\begin{itemize}
+    \item \textbf{Inward Flow Velocity:} $v_{\text{flow}}(r) = -c \sqrt{\frac{R_s}{r}}$.
+\end{itemize}
+
+\subsection{Time Dilation \& Metric}
+A stationary particle ``swims'' against this flow ($v_d = -v_{\text{flow}}$). The internal rotation is slowed by the Helical Constraint, reproducing Schwarzschild time dilation. This flow reconstructs the \textbf{Gullstrand–Painlevé metric}.
+
+\subsection{Note on Light Bending}
+While the spatial slices of the Gullstrand–Painlevé metric are flat (Euclidean), light paths (null geodesics) are curved by the flow field. A photon moving perpendicular to the flow is dragged downstream, reproducing the standard GR deflection angle $4GM/rc^2$.
+
+\begin{figure}[H]
+    \centering
+    % UNCOMMENT THE LINE BELOW IF YOU HAVE THE IMAGE FILE 'gravity_river_viz.png'
+    % \includegraphics[width=1.0\textwidth]{gravity_river_viz.png}
+    \caption{\textbf{The River Model of Gravity.} (A) The physical frame: Space flows inward towards the mass (Blue Arrow). A stationary particle must swim outward (Green Arrow) to maintain its position. (B) The Phase Space consequence: The ``Swim Speed'' acts as the Drift parameter $m$, stretching the Manifest Phase (Blue) and compressing the Backswing (Orange), causing Time Dilation.}
+    \label{fig:river}
+\end{figure}
+
+% ... [REST OF DOCUMENT REMAINS SAME] ...
+
+\section{The Quantized Drift Spectrum (Appendix C)}
+\begin{figure}[H]
+    \centering
+    % UNCOMMENT THE LINE BELOW IF YOU HAVE THE IMAGE FILE 'drift_spectrum_v15.png'
+    % \includegraphics[width=1.0\textwidth]{drift_spectrum_v15.png}
+    \caption{\textbf{Quantized Drift Spectrum.} Left: Allowed drift velocities decay as $1/N$. Right: The step size shrinks as $1/N^2$, recovering classical continuity for macroscopic objects.}
+    \label{fig:spectrum}
+\end{figure}
+
+\end{document}

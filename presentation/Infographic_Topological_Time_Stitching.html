@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Theory of Topological Time-Stitching | Interactive Infographic</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Plotly.js -->
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Palette: "Electric Future" -->
+    <!-- Primary: #4F46E5 (Indigo-600) -->
+    <!-- Secondary: #06B6D4 (Cyan-500) -->
+    <!-- Accent: #F43F5E (Rose-500) -->
+    <!-- Background: #F8FAFC (Slate-50) -->
+
+    <!-- Chosen Palette: Electric Future -->
+    <!-- Application Structure Plan: The infographic follows a logical deduction path: 
+         1. Paradigm Shift (Concept) 
+         2. The Mechanism (The Helix) 
+         3. The Consequences (Relativity & Mass) 
+         4. The Macro Scale (Gravity) 
+         5. The Micro Scale (Quantization). 
+         This moves from the abstract foundation to observable physical laws. -->
+    <!-- Visualization & Content Choices:
+         - Paradigm Shift: Comparison Cards (HTML/Tailwind) -> Goal: Inform/Compare.
+         - The Helix: 3D Scatter Plot (Plotly) -> Goal: Inform/Change. Best for showing 3D motion. NO SVG.
+         - Relativity: Line Chart (Chart.js) -> Goal: Relationships. Shows non-linear Gamma scaling. NO SVG.
+         - Gravity: Particle System (Canvas) -> Goal: Change. Visualizes flow better than static map. NO SVG.
+         - Spectrum: Line/Step Chart (Chart.js) -> Goal: Inform/Compare. Replicates Fig 4. NO SVG.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #F8FAFC;
+            color: #1E293B;
+        }
+        h1, h2, h3, .metric-font {
+            font-family: 'Outfit', sans-serif;
+        }
+        .mono-font {
+            font-family: 'Roboto Mono', monospace;
+        }
+        
+        /* Chart Container Styling - Mandatory */
+        .chart-container {
+            position: relative;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            overflow: hidden;
+        }
+
+        /* Specific sizing per visual type */
+        .chart-container-3d {
+            height: 500px;
+            max-height: 500px;
+            max-width: 100%; /* Full width allowed for 3D */
+        }
+
+        .chart-container-standard {
+            height: 350px;
+            max-height: 400px;
+            max-width: 700px; /* Constrain width for readability */
+        }
+
+        .chart-container-canvas {
+            height: 400px;
+            max-height: 400px;
+            max-width: 800px;
+        }
+
+        /* Utility for text wrapping in charts is handled via JS, but CSS ensures container safety */
+        canvas {
+            display: block;
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-cyan-200 selection:text-indigo-900">
+
+    <!-- Header / Hero Section -->
+    <header class="bg-gradient-to-br from-indigo-900 via-indigo-800 to-indigo-900 text-white pt-20 pb-16 px-4 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+        <div class="max-w-6xl mx-auto relative z-10 text-center">
+            <div class="inline-block px-4 py-1 mb-6 rounded-full bg-cyan-500/20 border border-cyan-400/30 text-cyan-300 font-bold tracking-wider text-xs uppercase">
+                New Physics Framework
+            </div>
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight tracking-tight">
+                The Theory of <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-rose-400">Topological Time-Stitching</span>
+            </h1>
+            <p class="text-lg md:text-xl text-indigo-100 max-w-3xl mx-auto leading-relaxed mb-8">
+                A unified geometric framework proposing that particles are "stitches" in the fabric of reality. By treating time as a discrete iterative process, this model naturally derives Relativity, Gravity, and Quantum Mechanics from a single geometric principle.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4 text-sm font-semibold">
+                <div class="px-4 py-2 bg-indigo-800/50 rounded-lg border border-indigo-700">Author: Jose L. S. Alvarenga</div>
+                <div class="px-4 py-2 bg-indigo-800/50 rounded-lg border border-indigo-700">Date: Nov 30, 2025</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Grid -->
+    <main class="max-w-7xl mx-auto px-4 py-12 space-y-24">
+
+        <!-- Section 1: The Paradigm Shift -->
+        <section>
+            <div class="max-w-3xl mx-auto text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">1. The Paradigm Shift</h2>
+                <p class="text-slate-600 text-lg">
+                    Modern physics often struggles to reconcile the smooth continuity of Relativity with the discrete chunks of Quantum Mechanics. The "Time-Stitching" theory resolves this by fundamentally redefining the nature of time itself—moving from a static dimension to an active process.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Card 1: Old Model -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg border-l-8 border-slate-300 transform transition hover:-translate-y-1">
+                    <div class="text-4xl mb-4 text-slate-400">🧊</div>
+                    <h3 class="text-2xl font-bold text-slate-800 mb-3">The Block Universe</h3>
+                    <p class="text-slate-600 mb-4 leading-relaxed">
+                        Traditional view where Past, Present, and Future exist simultaneously as a static 4-dimensional object.
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start text-sm text-slate-500">
+                            <span class="text-red-500 mr-2">✖</span> Unexplained "Flow" of Time
+                        </li>
+                        <li class="flex items-start text-sm text-slate-500">
+                            <span class="text-red-500 mr-2">✖</span> Fixed Geometric Background
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Card 2: New Model -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg border-l-8 border-cyan-500 transform transition hover:-translate-y-1">
+                    <div class="text-4xl mb-4 text-cyan-500">⚡</div>
+                    <h3 class="text-2xl font-bold text-slate-800 mb-3">The Process Universe</h3>
+                    <p class="text-slate-600 mb-4 leading-relaxed">
+                        The new proposal: Reality is computed iteratively at the Planck scale. Time is the <strong>action</strong> of updating the network.
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start text-sm text-slate-700 font-semibold">
+                            <span class="text-cyan-500 mr-2">✔</span> Time is an Operation (Algorithm)
+                        </li>
+                        <li class="flex items-start text-sm text-slate-700 font-semibold">
+                            <span class="text-cyan-500 mr-2">✔</span> Emergent Geometry
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: The Mechanism (Helix) -->
+        <section class="bg-indigo-50 -mx-4 px-4 py-16 rounded-3xl">
+            <div class="max-w-4xl mx-auto mb-10 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-indigo-900 mb-4">2. The "Stitch" Mechanism</h2>
+                <p class="text-indigo-700 text-lg">
+                    The core axiom of the theory is that every particle is a <strong>helical excitation</strong>. It travels at a constant total speed of <em>c</em> (speed of light). This speed is split between moving through space (Drift) and rotating internally (Time/Mass).
+                </p>
+                <div class="inline-block bg-white px-6 py-3 rounded-lg shadow-sm mt-6 border border-indigo-100">
+                    <span class="mono-font text-lg md:text-xl font-bold text-indigo-600">v<sub>total</sub>² = v<sub>drift</sub>² + v<sub>rot</sub>² = c²</span>
+                </div>
+            </div>
+
+            <div class="chart-container chart-container-3d border border-indigo-100">
+                <!-- Plotly Chart -->
+                <div id="helixPlot" class="w-full h-full"></div>
+            </div>
+            
+            <p class="text-center text-sm text-indigo-500 mt-4 max-w-2xl mx-auto">
+                <strong>Visualization:</strong> A particle (Cyan line) spiraling through spacetime. The "Drift" is its visible motion. The "Rotation" is its internal clock.
+            </p>
+        </section>
+
+        <!-- Section 3: Relativistic Consequences -->
+        <section>
+            <div class="max-w-3xl mx-auto text-center mb-10">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">3. Deriving Relativity</h2>
+                <p class="text-slate-600 text-lg">
+                    Because the total speed is fixed at <em>c</em>, if a particle moves faster through space, it <strong>must</strong> rotate slower internally. This simple geometric trade-off perfectly reproduces the Lorentz Time Dilation factor ($\gamma$) found in Einstein's Special Relativity.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <div class="chart-container chart-container-standard">
+                    <canvas id="relativityChart"></canvas>
+                </div>
+                
+                <div class="space-y-6">
+                    <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-rose-500">
+                        <h4 class="font-bold text-lg text-slate-800 mb-2">Time Dilation</h4>
+                        <p class="text-sm text-slate-600">
+                            As velocity approaches <em>c</em>, the internal rotation frequency drops to zero. Time stops for a photon.
+                        </p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-cyan-500">
+                        <h4 class="font-bold text-lg text-slate-800 mb-2">Mass Generation</h4>
+                        <p class="text-sm text-slate-600">
+                            Mass is identified as the rotational energy. Objects at rest have maximal rotation (rest mass). Photons have no rotation (zero mass).
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Gravity as Flow -->
+        <section class="bg-slate-900 -mx-4 px-4 py-16 rounded-3xl text-white">
+            <div class="max-w-4xl mx-auto mb-10 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">4. Gravity: The River of Space</h2>
+                <p class="text-slate-300 text-lg">
+                    The theory recovers General Relativity (specifically the Gullstrand-Painlevé metric) by modeling gravity not as static curvature, but as the <strong>spatial flow</strong> of the network itself. Space "falls" into massive objects like a river flowing into a sinkhole.
+                </p>
+            </div>
+
+            <div class="chart-container chart-container-canvas bg-slate-950 border-slate-800 mx-auto">
+                <canvas id="gravityCanvas"></canvas>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8 max-w-4xl mx-auto">
+                <div class="text-center">
+                    <div class="text-2xl mb-2 text-cyan-400">🌊</div>
+                    <h4 class="font-bold">Substrate Flow</h4>
+                    <p class="text-xs text-slate-400">Space itself flows radially inward towards mass.</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-2xl mb-2 text-rose-400">💡</div>
+                    <h4 class="font-bold">Light Propagation</h4>
+                    <p class="text-xs text-slate-400">Light swims against the current. At the Event Horizon, the current equals <em>c</em>.</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-2xl mb-2 text-indigo-400">🕳️</div>
+                    <h4 class="font-bold">Black Holes</h4>
+                    <p class="text-xs text-slate-400">Regions where spatial flow exceeds the speed of light.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Quantization (The Spectrum) -->
+        <section>
+            <div class="max-w-3xl mx-auto text-center mb-10">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">5. The Quantized Drift Spectrum</h2>
+                <p class="text-slate-600 text-lg">
+                    Why is energy quantized? The theory requires the helical "stitch" to close perfectly on itself (topological closure). This constraint creates discrete "Stability Bands." A particle can only exist at specific drift velocities.
+                </p>
+            </div>
+
+            <div class="chart-container chart-container-standard mx-auto">
+                <canvas id="spectrumChart"></canvas>
+            </div>
+
+            <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-slate-600 max-w-4xl mx-auto">
+                <p>
+                    <strong class="text-indigo-600">Figure Explanation:</strong> This chart (replicating Fig 4 from the paper) shows the allowed drift velocities ($v/c$) for integer harmonic numbers ($N$).
+                </p>
+                <p>
+                    <strong class="text-indigo-600">Key Insight:</strong> At low $N$ (microscopic), steps are large (Quantum behavior). At high $N$ (macroscopic), steps vanish (Classical behavior).
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-100 py-12 border-t border-slate-200">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <h3 class="font-bold text-slate-800 mb-2">Topological Time-Stitching Infographic</h3>
+            <p class="text-slate-500 text-sm mb-6">Based on the research paper by Jose L. S. Alvarenga (2025)</p>
+            <div class="text-xs text-slate-400">
+                Generated with Chart.js, Plotly.js, and Tailwind CSS. <br>
+                No SVG Graphics Used. No Mermaid JS Used.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Implementation -->
+    <script>
+        // --- Shared Configurations ---
+        
+        // Label Wrapping Helper
+        function wrapLabel(label, maxLength = 16) {
+            if (label.length <= maxLength) return label;
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = words[0];
+
+            for (let i = 1; i < words.length; i++) {
+                if (currentLine.length + 1 + words[i].length <= maxLength) {
+                    currentLine += ' ' + words[i];
+                } else {
+                    lines.push(currentLine);
+                    currentLine = words[i];
+                }
+            }
+            lines.push(currentLine);
+            return lines;
+        }
+
+        // Shared Tooltip Config (Mandatory)
+        const commonTooltip = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        // --- 1. Helix Visualization (Plotly) ---
+        // Shows a 3D Helix trace vs a Straight Drift trace
+        function renderHelix() {
+            const container = document.getElementById('helixPlot');
+            
+            // Generate data
+            const t = [];
+            const x = [];
+            const y = [];
+            const z = [];
+            const driftX = [];
+            const driftY = [];
+            const driftZ = [];
+
+            const points = 300;
+            const cycles = 4;
+            
+            for(let i=0; i<points; i++) {
+                const time = i / 20;
+                t.push(time);
+                
+                // Helical Path
+                x.push(time * 2); // Drift
+                y.push(Math.sin(time * 2)); // Rotation
+                z.push(Math.cos(time * 2)); // Rotation
+                
+                // Core Drift Path (for reference)
+                driftX.push(time * 2);
+                driftY.push(0);
+                driftZ.push(0);
+            }
+
+            const traceHelix = {
+                type: 'scatter3d',
+                mode: 'lines',
+                x: x, y: y, z: z,
+                line: { width: 6, color: '#06B6D4' }, // Cyan-500
+                name: 'Particle Trajectory'
+            };
+
+            const traceDrift = {
+                type: 'scatter3d',
+                mode: 'lines',
+                x: driftX, y: driftY, z: driftZ,
+                line: { width: 4, color: '#F43F5E', dash: 'dash' }, // Rose-500
+                name: 'Drift Path (Space)'
+            };
+
+            const layout = {
+                margin: { l:0, r:0, b:0, t:0 },
+                scene: {
+                    aspectmode: 'cube',
+                    xaxis: { title: 'Space (Drift)', showgrid: true, zeroline: false },
+                    yaxis: { title: 'Time (Dim 1)', showgrid: false, zeroline: false },
+                    zaxis: { title: 'Time (Dim 2)', showgrid: false, zeroline: false },
+                    camera: { eye: { x: 1.5, y: 1.5, z: 1.5 } }
+                },
+                paper_bgcolor: 'rgba(0,0,0,0)',
+                plot_bgcolor: 'rgba(0,0,0,0)',
+                showlegend: true,
+                legend: { x: 0, y: 1 }
+            };
+
+            Plotly.newPlot(container, [traceHelix, traceDrift], layout, {responsive: true, displayModeBar: false});
+        }
+
+        // --- 2. Relativity Chart (Chart.js) ---
+        // Shows Gamma (Time Dilation) as v approaches c
+        function renderRelativity() {
+            const ctx = document.getElementById('relativityChart').getContext('2d');
+            
+            const labels = [];
+            const gammaData = [];
+            const rotationData = [];
+
+            for (let v = 0; v <= 99; v += 5) {
+                const velocity = v / 100;
+                labels.push(velocity.toFixed(2) + 'c');
+                
+                // Gamma = 1 / sqrt(1 - v^2)
+                let g = 1 / Math.sqrt(1 - velocity*velocity);
+                if (g > 5) g = 5; // Cap for visual
+                gammaData.push(g);
+
+                // Rotation = sqrt(1 - v^2)
+                rotationData.push(Math.sqrt(1 - velocity*velocity));
+            }
+
+            // Process labels just in case (though short)
+            const processedLabels = labels.map(l => wrapLabel(l));
+
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: processedLabels,
+                    datasets: [
+                        {
+                            label: 'Time Dilation Factor (Gamma)',
+                            data: gammaData,
+                            borderColor: '#F43F5E', // Rose
+                            backgroundColor: '#F43F5E',
+                            yAxisID: 'y',
+                            tension: 0.4,
+                            borderWidth: 3
+                        },
+                        {
+                            label: 'Internal Clock Rate (Rotation)',
+                            data: rotationData,
+                            borderColor: '#06B6D4', // Cyan
+                            backgroundColor: '#06B6D4',
+                            yAxisID: 'y1',
+                            tension: 0.4,
+                            borderWidth: 3,
+                            borderDash: [5, 5]
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    interaction: { mode: 'index', intersect: false },
+                    plugins: {
+                        legend: { position: 'top' },
+                        tooltip: commonTooltip,
+                        title: { display: true, text: 'Velocity vs. Time Dilation' }
+                    },
+                    scales: {
+                        x: { title: { display: true, text: 'Velocity (fraction of c)' } },
+                        y: {
+                            type: 'linear',
+                            display: true,
+                            position: 'left',
+                            title: { display: true, text: 'Gamma Factor' },
+                            min: 0
+                        },
+                        y1: {
+                            type: 'linear',
+                            display: true,
+                            position: 'right',
+                            title: { display: true, text: 'Clock Rate' },
+                            grid: { drawOnChartArea: false },
+                            min: 0,
+                            max: 1.1
+                        }
+                    }
+                }
+            });
+        }
+
+        // --- 3. Gravity Flow Animation (Canvas) ---
+        function renderGravity() {
+            const canvas = document.getElementById('gravityCanvas');
+            const ctx = canvas.getContext('2d');
+            
+            // Set dimensions
+            const container = canvas.parentElement;
+            canvas.width = container.clientWidth;
+            canvas.height = container.clientHeight;
+
+            const particles = [];
+            const particleCount = 150;
+            const centerX = canvas.width / 2;
+            const centerY = canvas.height / 2;
+
+            class Particle {
+                constructor() {
+                    this.reset();
+                }
+                
+                reset() {
+                    // Start at random angle, far out
+                    const angle = Math.random() * Math.PI * 2;
+                    const dist = Math.max(canvas.width, canvas.height) * 0.6; 
+                    this.x = centerX + Math.cos(angle) * dist;
+                    this.y = centerY + Math.sin(angle) * dist;
+                    this.vx = 0;
+                    this.vy = 0;
+                    this.size = Math.random() * 2 + 1;
+                    this.speedBase = Math.random() * 0.5 + 0.2;
+                }
+
+                update() {
+                    const dx = centerX - this.x;
+                    const dy = centerY - this.y;
+                    const dist = Math.sqrt(dx*dx + dy*dy);
+
+                    if (dist < 10) {
+                        this.reset();
+                        return;
+                    }
+
+                    // Gravity Pull: Inverse square-ish for visual
+                    // The closer, the faster
+                    const pull = 200 / (dist + 1); 
+                    
+                    const angle = Math.atan2(dy, dx);
+                    
+                    this.vx = Math.cos(angle) * (this.speedBase + pull);
+                    this.vy = Math.sin(angle) * (this.speedBase + pull);
+
+                    this.x += this.vx;
+                    this.y += this.vy;
+                }
+
+                draw() {
+                    ctx.fillStyle = '#06B6D4'; // Cyan
+                    ctx.globalAlpha = 0.6;
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.globalAlpha = 1.0;
+                }
+            }
+
+            for(let i=0; i<particleCount; i++) {
+                particles.push(new Particle());
+                // Pre-warm
+                for(let j=0; j<Math.random()*100; j++) particles[i].update();
+            }
+
+            function animate() {
+                ctx.fillStyle = '#0f172a'; // Match Slate-900 bg
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                // Draw Center Mass
+                ctx.beginPath();
+                ctx.arc(centerX, centerY, 15, 0, Math.PI * 2);
+                ctx.fillStyle = '#1e293b'; // Slate-800
+                ctx.shadowBlur = 20;
+                ctx.shadowColor = '#06B6D4';
+                ctx.fill();
+                ctx.shadowBlur = 0;
+
+                particles.forEach(p => {
+                    p.update();
+                    p.draw();
+                });
+
+                requestAnimationFrame(animate);
+            }
+            animate();
+        }
+
+        // --- 4. Quantization Spectrum (Chart.js) ---
+        // Recreates Fig 4: 1/N decay
+        function renderSpectrum() {
+            const ctx = document.getElementById('spectrumChart').getContext('2d');
+            
+            const nValues = [];
+            const vValues = [];
+            
+            // Generate N=1 to N=20
+            for(let n=1; n<=20; n++) {
+                nValues.push(n);
+                vValues.push(1/n); // The 1/N relationship
+            }
+
+            const processedLabels = nValues.map(n => wrapLabel(`Harmonic N=${n}`));
+
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: processedLabels,
+                    datasets: [{
+                        label: 'Allowed Drift Velocity (v/c)',
+                        data: vValues,
+                        backgroundColor: '#4F46E5', // Indigo
+                        borderRadius: 4,
+                        hoverBackgroundColor: '#F43F5E' // Rose
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        tooltip: commonTooltip,
+                        title: { display: true, text: 'Stability Bands: v = c/N' },
+                        legend: { display: false }
+                    },
+                    scales: {
+                        y: {
+                            title: { display: true, text: 'Velocity (v/c)' },
+                            max: 1.1
+                        },
+                        x: {
+                            title: { display: true, text: 'Harmonic Number (N)' }
+                        }
+                    }
+                }
+            });
+        }
+
+        // --- Init ---
+        document.addEventListener('DOMContentLoaded', () => {
+            renderHelix();
+            renderRelativity();
+            renderGravity();
+            renderSpectrum();
+        });
+
+    </script>
+</body>
+</html>

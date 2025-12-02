@@ -15,7 +15,7 @@
 \usepackage[numbers]{natbib}
 
 % --- Title & Author Data ---
-\title{\textbf{The Theory of Topological Time-Stitching} \\ \large A Unified Geometric Framework for Discrete Spacetime, Quantum Branching, and Relativistic Mechanics}
+\title{\textbf{The Theory of Topological Time-Stitching } \\ \large A Unified Geometric Framework for Discrete Spacetime, Quantum Branching, and Relativistic Mechanics}
 
 % --- AUTHOR BLOCK ---
 \author{
@@ -50,7 +50,7 @@ This paper proposes a shift from a ``Block Universe'' to a ``Process Universe,''
 
 Standard physics typically models the universe as a ``Block'' (a pre-existing 4D spacetime manifold). This theory proposes a paradigm shift to a \textbf{``Process Universe,''} where Time is not a dimension but a discrete, iterative operation (a ``Tick'') occurring on a \textbf{Discrete Causal Network}.
 
-The fundamental proposition is that particles are not continuous entities but \textbf{propagating helical excitations} defined by a discrete, iterative phase-locking cycle via a geometric mechanism termed \textbf{Topological Stitching}. This framework unifies the probabilistic nature of Quantum Mechanics with the deterministic geometry of General Relativity through a single generative principle: the conservation of causal continuity.
+The fundamental proposition is that particles are not continuous entities but \textbf{propagating excitations} re-generated in every cycle via a geometric mechanism termed \textbf{Topological Stitching}. This framework unifies the probabilistic nature of Quantum Mechanics with the deterministic geometry of General Relativity through a single generative principle: the conservation of causal continuity.
 
 % ----------------------------------------------------------------------
 \section{Conceptual Framework}
@@ -61,7 +61,6 @@ In a discrete universe, time is not a smooth flow but a series of ``frames.'' A 
 
 \begin{figure}[H]
     \centering
-    % Placeholder for the 2-Panel Schematic (Visual Abstract)
     % UNCOMMENT BELOW IF FILE EXISTS:
     \includegraphics[width=1.0\textwidth]{diagram.png}
     \caption{\textbf{Conceptual Overview.} (A) The physical intuition: Gravity acts as a river of space flowing into mass. A stationary particle must swim against this flow. (B) The geometric consequence: The ``Swim Speed'' creates a drift in the internal phase space, distorting the stitch cycle and slowing down proper time (Time Dilation).}
@@ -149,7 +148,7 @@ Numerical analysis confirms that the Helical Stitch Ratio $R$ scales perfectly w
 \begin{figure}[H]
     \centering
     % UNCOMMENT BELOW IF FILE EXISTS:
-    \includegraphics[width=0.9\textwidth]{helical_derivation.png}
+    \includegraphics[width=0.9\textwidth]{helical_derivation.png.png}
     \caption{\textbf{Geometric Verification of Time Dilation.} The Green Line represents the dilation predicted by the Helical Stitching Model. The Blue Dashed Line is the standard Einstein Gamma factor. The perfect overlap confirms that Special Relativity is the natural geometric limit of the helical stitch.}
     \label{fig:relativity}
 \end{figure}
@@ -186,8 +185,22 @@ A stationary particle ``swims'' against this flow ($v_d = -v_{\text{flow}}$). Th
     \item \textbf{Feasibility:} Detectable via Large Momentum Transfer (LMT) atom interferometry.
 \end{itemize}
 
-\subsection{Proposal B: The Flow-Clock Experiment}
-\textbf{Test:} Compare atomic clocks moving with vs. against gravitational frame-dragging.
+\subsection{Proposal B: Flow-Clock Orientation Test}
+The Process-Universe model predicts that the internal phase-locking cycle of a particle depends not only on gravitational potential but also on the orientation of its internal rotation axis relative to the gravitational inflow. 
+
+\textbf{Suppression in Current Clocks:} In most existing atomic clocks, the atomic states are isotropic or ensemble-averaged, which suppresses any directional signal. Therefore, current measurements (GPS, optical clocks) do not constrain this effect. A dedicated test requires a clock with a single well-defined internal axis (e.g., high-finesse optical cavity, single-ion with fixed quantization axis).
+
+\textbf{Test Setup:} Two identical spin-polarized clocks at the same potential.
+\begin{itemize}
+    \item \textbf{Clock A:} Internal axis vertical (aligned with flow).
+    \item \textbf{Clock B:} Internal axis horizontal (transverse to flow).
+\end{itemize}
+
+\textbf{Prediction:} The model predicts a fractional frequency shift:
+\begin{equation}
+    \frac{\Delta f}{f} = \alpha \left(\frac{v_{\text{flow}}}{c}\right) \left(\frac{v_{\text{rot}}}{c}\right)
+\end{equation}
+where $\alpha$ is a coupling constant determined by the degree to which the internal phase cycle couples to the clock transition. This constitutes a \textbf{distinctive} and falsifiable signature of the model.
 
 % ----------------------------------------------------------------------
 \section{Fundamental Constants \& Symbol Table}
@@ -243,7 +256,7 @@ The numerical verifications and visualizations presented in this paper were gene
     \item \textbf{Figure 4:} \texttt{quantized\_spectrum.py} - Solves the transcendental stability equation for $N=1..20$.
 \end{enumerate}
 
-Repository URL: \url{https://github.com/joselucasbr/topological-stitching} \textit{(Placeholder)}
+Repository URL: \url{https://github.com/joselucasbr/topological-stitching} \textit{(topological-stitching)}
 
 % ----------------------------------------------------------------------
 % Bibliography
@@ -307,9 +320,24 @@ The lattice Hamiltonian $H = \sum \kappa (\theta_i - \theta_j - A_{ij})^2$ minim
 \section{The Quantized Drift Spectrum}
 This appendix details the numerical solutions to the Zero-Drift Stability Equation.
 
+\begin{table}[h]
+\centering
+\begin{tabular}{@{}ccc@{}}
+\toprule
+\textbf{Harmonic (N)} & \textbf{Drift ($v_d/c$)} & \textbf{Spacing ($\Delta v/c$)} \\ \midrule
+1 & 1.00000000 & - \\
+2 & 0.21723363 & 0.78276637 \\
+3 & 0.12837455 & 0.08885908 \\
+4 & 0.09132520 & 0.03704935 \\
+5 & 0.07091347 & 0.02041173 \\
+\bottomrule
+\end{tabular}
+\caption{First 5 Harmonics of the Drift Spectrum}
+\end{table}
+
 \begin{figure}[H]
     \centering
-    % UNCOMMENT BELOW IF FILE EXISTS:
+    % UNCOMMENT THE LINE BELOW IF YOU HAVE THE IMAGE FILE 'drift_spectrum_v15.png'
     \includegraphics[width=1.0\textwidth]{drift_spectrum.png}
     \caption{\textbf{Quantized Drift Spectrum.} Left: Allowed drift velocities decay as $1/N$. Right: The step size shrinks as $1/N^2$, recovering classical continuity for macroscopic objects.}
     \label{fig:spectrum}
